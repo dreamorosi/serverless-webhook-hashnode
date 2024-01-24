@@ -1,0 +1,36 @@
+{
+  "name": "gh-hook",
+  "version": "0.1.0",
+  "bin": {
+    "gh-hook": "src/GitHubHookApp.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "test": "POWERTOOLS_DEV=yes AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE=1 node -r esbuild-register src/functions/auth/test.ts"
+  },
+  "devDependencies": {
+    "@aws-sdk/protocol-http": "^3.374.0",
+    "@aws-sdk/signature-v4": "^3.374.0",
+    "@types/aws-lambda": "^8.10.131",
+    "@types/node": "20.11.5",
+    "aws-cdk": "2.122.0",
+    "aws-sdk": "^2.1541.0",
+    "esbuild": "^0.19.11",
+    "esbuild-register": "^3.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.3.3"
+  },
+  "dependencies": {
+    "@aws-lambda-powertools/idempotency": "^2.0.0-alpha.2",
+    "@aws-lambda-powertools/logger": "^2.0.0-alpha.2",
+    "@aws-lambda-powertools/parameters": "^2.0.0-alpha.2",
+    "@aws-sdk/client-eventbridge": "^3.496.0",
+    "@aws-sdk/client-secrets-manager": "^3.496.0",
+    "@urql/core": "^4.2.3",
+    "aws-cdk-lib": "2.122.0",
+    "constructs": "^10.3.0",
+    "source-map-support": "^0.5.21"
+  }
+}
