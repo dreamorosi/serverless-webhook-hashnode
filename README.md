@@ -83,7 +83,7 @@ To test the webhook, you can create a new post in your Hashnode blog. After a fe
 Alternatively, we also provide a simple script that pulls a post from a blog and sends it to the webhook simulating a Hashnode webhook request. To use it, you need to first update the url to your webhook in the `src/scripts/test-webhook.mts` file:
 
 ```typescript
-const BLOG_HOST = "engineering.hashnode.com";
+const BLOG_HOST = "engineering.hashnode.com"; // <-- You can use your own blog here if you want
 const WEBHOOK_URL = "https://your-webhook-url.com/webhook"; // <-- Update this
 ```
 
@@ -129,6 +129,73 @@ Click on the most recent log stream, you should see the logs of the `consumer` L
 HashBridge is designed to be extended with new event handlers. To add a new event handler, you can either customize the existing consumer function or add new ones. Below we describe how to do both.
 
 ### Customize the consumer function
+
+To customize the consumer function, you can edit the `src/functions/consumer/index.ts` file. This file contains the code of the consumer function. Along with the code, you can also find the types of the events that the function handles.
+
+```typescript
+const eventType = {
+	postDeleted: "post_deleted",
+	postCreated: "post_created",
+	postUpdated: "post_updated",
+} as const;
+
+interface PostBase {
+  uuid: string;
+}
+
+type EventType = (typeof eventType)[keyof typeof eventType];
+
+interface PostDeleted extends PostBase {
+  eventType: typeof eventType.postDeleted;
+  post: {
+    id: string;
+  };
+}
+
+interface PostCreated extends PostBase {
+  eventType: typeof eventType.postCreated;
+  post: {
+    id: string;
+    publication: {
+      id: string;
+    };
+    publishedAt: string;
+    updatedAt: string;
+    title: string;
+    subtitle: string;
+    brief: string;
+    content: {
+      markdown: string;
+    };
+  };
+}
+
+interface PostUpdated extends PostBase {
+  eventType: typeof eventType.postUpdated;
+  post: {
+    id: string;
+    publication: {
+      id: string;
+    };
+    publishedAt: string;
+    updatedAt: string;
+    title: string;
+    subtitle: string;
+    brief: string;
+    content: {
+      markdown: string;
+    };
+  };
+}
+
+type PostEvent = PostDeleted | PostCreated | PostUpdated;
+```
+
+Once you are done customizing the function, you can run the following command to deploy the changes:
+
+```bash
+npm run cdk deploy -- --all
+```
 
 ### Add a new consumer function
 
@@ -193,6 +260,12 @@ const newPostEventRule = new Rule(this, "newPostEventRule", {
 You can find more information about the event patterns in the [Amazon EventBridge documentation](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html). 
 
 With EventBridge you can also create rules with different targets. For example, you can create a rule that sends the event to an Amazon SQS, or even other API endpoints. For more information, see [Targets for Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-targets.html).
+
+Once you are done adding the new function, you can run the following command to deploy the changes:
+
+```bash
+npm run cdk deploy -- --all
+```
 
 ## Cleanup
 
