@@ -1,8 +1,8 @@
-# Hashbridge: extend your Hashnode blog with event-driven serverless functions
+# HashBridge: extend your Hashnode blog with event-driven serverless functions
 
 Connect your Hashnode blog to serverless AWS Lambda functions and Amazon EventBridge based on events in your Hashnode blog.
 
-This project is explained in detail in the blog post [Hashbridge: Extend your Hashnode blog with event-driven serverless functions](https://serverlesstypescript.com/hashbridge-extend-your-hashnode-blog-with-event-driven-serverless-functions), the following is a summary of the steps to get started.
+This project is explained in detail in the blog post [HashBridge: Extend your Hashnode blog with event-driven serverless functions](https://serverlesstypescript.com/hashbridge-extend-your-hashnode-blog-with-event-driven-serverless-functions), the following is a summary of the steps to get started.
 
 ![Architecture Diagram](./assets/architecture-diagram.png)
 
@@ -11,15 +11,15 @@ This project is explained in detail in the blog post [Hashbridge: Extend your Ha
 - An [AWS account](https://repost.aws/knowledge-center/create-and-activate-aws-account)
 - Node.js v18.x or later
 - AWS CLI (*optional*)
-- An Hashnode blog
+- A Hashnode blog
 
 ### Create an Hashnode Webhook Secret
 
-Next, you need to obtain the Hashnode webhook secret. To do this, you need to create a new webhook in your Hashnode blog. To do this, go to your blog's settings page and click on the "Webhooks" tab. Then, click on the "Add New Webhook" button.
+First, you need to obtain the Hashnode webhook secret. To do this, go to your blog's settings page and click on the "Webhooks" tab. Then, click on the "Add New Webhook" button.
 
 ![Hashnode Webhook](./assets/webhook.png)
 
-For now you can leave the "Webhook URL" field empty. You will get the URL later when you deploy the Hashbridge application. Copy the value displayed in the "Secret" field. This value will be used to verify that the webhook request is coming from Hashnode. Make sure to copy the secret value, as you will need it later, and leave the settings page open.
+For now, you can leave the "Webhook URL" field empty. You will get the URL later when you deploy the HashBridge application. Copy the value displayed in the "Secret" field. This value will be used to verify that the webhook request is coming from Hashnode. Make sure to leave this page open for now.
 
 ### Store the Hashnode Webhook Secret
 
@@ -36,9 +36,9 @@ If instead you prefer to store the secret in the AWS Secrets Manager console, yo
 ![AWS Secrets Manager](./assets/secret_manager.png)
 
 > [!IMPORTANT]
-> Hashbridge deploys a number of resources into your AWS account, including a Amazon CloudFront distribution, AWS Lambda functions, and an Amazon EventBridge event bus. While the AWS Free Tier includes a number of these resources for free, you may incur charges if you exceed the free tier limits. For more information, see [AWS Free Tier](https://aws.amazon.com/free/). We also recommend you setting up a billing alarm to monitor your AWS charges. For more information, see [Creating a Billing Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html#monitor_estimated_charges_console).
+> HashBridge deploys a number of resources into your AWS account, including a Amazon CloudFront distribution, AWS Lambda functions, and an Amazon EventBridge event bus. While the AWS Free Tier includes a number of these resources for free, you may incur charges if you exceed the free tier limits. For more information, see [AWS Free Tier](https://aws.amazon.com/free/). We also recommend you setting up a billing alarm to monitor your AWS charges. For more information, see [Creating a Billing Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html#monitor_estimated_charges_console).
 
-## Deploy the Hashbridge application
+## Deploy the HashBridge application
 
 As a first step, clone this repository to your local machine:
 
@@ -72,7 +72,7 @@ ServerlessWebhookApiStack.distribution = https://dkzum3j6x4pzr.cloudfront.net
 
 Copy the URL and go back to the Hashnode settings page. Paste the URL in the "URL" field and make sure the events of type `post_*` are selected, then click on the "Save" button.
 
-Congratulations! You have successfully deployed the Hashbridge application and connected it to your Hashnode blog 🎉!
+Congratulations! You have successfully deployed the HashBridge application and connected it to your Hashnode blog 🎉!
 
 ## Test the application
 
@@ -126,7 +126,7 @@ Click on the most recent log stream, you should see the logs of the `consumer` L
 
 ## Extend the application
 
-Hashbridge is designed to be extended with new event handlers. To add a new event handler, you can either customize the existing consumer function or add new ones. Below we describe how to do both.
+HashBridge is designed to be extended with new event handlers. To add a new event handler, you can either customize the existing consumer function or add new ones. Below we describe how to do both.
 
 ### Customize the consumer function
 
@@ -192,11 +192,11 @@ const newPostEventRule = new Rule(this, "newPostEventRule", {
 
 You can find more information about the event patterns in the [Amazon EventBridge documentation](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html). 
 
-With EventBridge you can also create rule with different targets. For example, you can create a rule that sends the event to an Amazon SQS, or even other API endpoints. For more information, see [Targets for Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-targets.html).
+With EventBridge you can also create rules with different targets. For example, you can create a rule that sends the event to an Amazon SQS, or even other API endpoints. For more information, see [Targets for Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-targets.html).
 
 ## Cleanup
 
-To delete the resources created by the Hashbridge application, you can run the following command:
+To delete the resources created by the HashBridge application, you can run the following command:
 
 ```bash
 npm run cdk destroy -- --all
