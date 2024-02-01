@@ -1,14 +1,11 @@
 {
-  "name": "gh-hook",
+  "name": "hashbridge-serverless-webhook-hashnode",
   "version": "0.1.0",
-  "bin": {
-    "gh-hook": "src/GitHubHookApp.js"
-  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
     "cdk": "cdk",
-    "test": "POWERTOOLS_DEV=yes AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE=1 node -r esbuild-register src/functions/auth/test.ts"
+    "test-webhook": "node -r esbuild-register src/scripts/test-webhook.mts"
   },
   "devDependencies": {
     "@aws-sdk/protocol-http": "^3.374.0",

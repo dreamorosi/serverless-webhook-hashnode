@@ -290,3 +290,5 @@ cdk.out
 event.json
 out.json
 payload.json
+
+.DS_Store
