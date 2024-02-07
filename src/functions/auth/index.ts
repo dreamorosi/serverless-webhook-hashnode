@@ -1,10 +1,11 @@
 import type { CloudFrontRequestEvent } from "aws-lambda";
 import { SignatureV4 } from "@smithy/signature-v4";
+import { HttpRequest } from "@smithy/protocol-http";
 import { Logger } from "@aws-lambda-powertools/logger";
 import { SecretsProvider } from "@aws-lambda-powertools/parameters/secrets";
 import { SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
-import { HttpRequest, Sha256, validateSignature } from "./utils";
-import { QueryParameters } from "./types";
+import { Sha256, validateSignature } from "./utils";
+import type { QueryParameterBag } from "@aws-sdk/types";
 import { parse } from "node:querystring";
 
 const logger = new Logger({ logLevel: "DEBUG" });
@@ -70,7 +71,7 @@ export const handler = async (event: CloudFrontRequestEvent) => {
     path: url.pathname,
     method,
     headers: {},
-    query: querystring ? (parse(querystring) as QueryParameters) : undefined,
+    query: querystring ? (parse(querystring) as QueryParameterBag) : undefined,
     body: body?.data
       ? Buffer.from(body.data, body.encoding as BufferEncoding)
       : undefined,
