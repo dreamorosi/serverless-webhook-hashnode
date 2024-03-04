@@ -27,7 +27,7 @@
     "@aws-sdk/client-eventbridge": "^3.525.0",
     "@aws-sdk/client-secrets-manager": "^3.525.0",
     "@smithy/protocol-http": "^3.1.1",
-    "@urql/core": "^4.2.3",
+    "@urql/core": "^4.3.0",
     "aws-cdk-lib": "2.131.0",
     "constructs": "^10.3.0",
     "source-map-support": "^0.5.21"
