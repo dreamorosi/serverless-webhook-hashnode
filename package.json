@@ -10,7 +10,7 @@
   "devDependencies": {
     "@aws-sdk/protocol-http": "^3.374.0",
     "@aws-sdk/signature-v4": "^3.374.0",
-    "@biomejs/biome": "^1.6.3",
+    "@biomejs/biome": "^1.6.4",
     "@types/aws-lambda": "^8.10.136",
     "@types/node": "20.12.2",
     "aws-cdk": "2.134.0",
