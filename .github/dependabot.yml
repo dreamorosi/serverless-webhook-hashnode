@@ -4,19 +4,19 @@ updates:
     directory: /.devcontainer
     labels: [ ]
     schedule:
-      interval: weekly
+      interval: monthly
 
   - package-ecosystem: github-actions
     directory: /
     labels: [ ]
     schedule:
-      interval: weekly
+      interval: monthly
 
   - package-ecosystem: npm
     directory: /
     labels: [ ]
     schedule:
-      interval: weekly
+      interval: monthly
     versioning-strategy: increase
     groups:
       aws-sdk:
