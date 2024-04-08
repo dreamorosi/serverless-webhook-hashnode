@@ -18,7 +18,7 @@
     "esbuild": "^0.20.1",
     "esbuild-register": "^3.5.0",
     "ts-node": "^10.9.2",
-    "typescript": "~5.4.3"
+    "typescript": "~5.4.4"
   },
   "dependencies": {
     "@aws-lambda-powertools/idempotency": "^2.0.3",
