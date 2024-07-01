@@ -14,8 +14,8 @@
     "@types/aws-lambda": "^8.10.138",
     "@types/node": "20.14.0",
     "aws-cdk": "2.147.2",
-    "aws-sdk": "^2.1632.0",
-    "esbuild": "^0.20.1",
+    "aws-sdk": "^2.1651.0",
+    "esbuild": "^0.22.0",
     "esbuild-register": "^3.5.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.4.4"
@@ -23,7 +23,7 @@
   "dependencies": {
     "@aws-lambda-powertools/idempotency": "^2.0.3",
     "@aws-lambda-powertools/logger": "^2.1.0",
-    "@aws-lambda-powertools/parameters": "^2.0.3",
+    "@aws-lambda-powertools/parameters": "^2.3.0",
     "@aws-sdk/client-eventbridge": "^3.588.0",
     "@aws-sdk/client-secrets-manager": "^3.588.0",
     "@smithy/protocol-http": "^4.0.0",
