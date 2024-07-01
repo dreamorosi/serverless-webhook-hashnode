@@ -85,7 +85,14 @@ export class ServerlessWebhookApiStack extends Stack {
       entry: join(__dirname, "./functions/api/index.ts"),
       handler: "handler",
       bundling: {
+        minify: true,
+        mainFields: ['module', 'main'],
+        sourceMap: true,
         format: OutputFormat.ESM,
+        platform: 'node',
+        esbuildArgs: {
+          '--packages': 'bundle'
+        }
       },
       environment: {
         IDEMPOTENCY_TABLE_NAME: table.tableName,
@@ -154,11 +161,14 @@ export class ServerlessWebhookApiStack extends Stack {
       entry: join(__dirname, "./functions/consumer/index.ts"),
       handler: "handler",
       bundling: {
-        format: OutputFormat.ESM,
         minify: true,
+        mainFields: ['module', 'main'],
+        sourceMap: true,
+        format: OutputFormat.ESM,
+        platform: 'node',
         esbuildArgs: {
-          "--tree-shaking": "true",
-        },
+          '--packages': 'bundle'
+        }
       },
     });
 
