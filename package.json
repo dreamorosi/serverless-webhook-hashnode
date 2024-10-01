@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@aws-lambda-powertools/idempotency": "^2.0.3",
-    "@aws-lambda-powertools/logger": "^2.6.0",
+    "@aws-lambda-powertools/logger": "^2.8.0",
     "@aws-lambda-powertools/parameters": "^2.7.0",
     "@smithy/protocol-http": "^4.1.0",
     "@urql/core": "^5.0.6",
