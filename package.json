@@ -14,7 +14,7 @@
     "@types/aws-lambda": "^8.10.145",
     "@types/node": "22.9.0",
     "aws-cdk": "2.165.0",
-    "aws-sdk": "^2.1691.0",
+    "aws-sdk": "^2.1692.0",
     "esbuild": "^0.23.1",
     "esbuild-register": "^3.5.0",
     "ts-node": "^10.9.2",
