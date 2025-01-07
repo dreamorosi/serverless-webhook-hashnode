@@ -24,7 +24,7 @@
     "@aws-lambda-powertools/idempotency": "^2.8.0",
     "@aws-lambda-powertools/logger": "^2.8.0",
     "@aws-lambda-powertools/parameters": "^2.7.0",
-    "@smithy/protocol-http": "^4.1.5",
+    "@smithy/protocol-http": "^5.0.0",
     "@urql/core": "^5.1.0",
     "aws-cdk-lib": "2.174.1",
     "constructs": "^10.4.2",
