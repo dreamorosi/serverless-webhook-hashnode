@@ -21,7 +21,7 @@
     "typescript": "~5.4.4"
   },
   "dependencies": {
-    "@aws-lambda-powertools/idempotency": "^2.8.0",
+    "@aws-lambda-powertools/idempotency": "^2.13.1",
     "@aws-lambda-powertools/logger": "^2.8.0",
     "@aws-lambda-powertools/parameters": "^2.13.1",
     "@smithy/protocol-http": "^5.0.1",
