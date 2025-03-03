@@ -15,7 +15,7 @@
     "@types/node": "22.13.0",
     "aws-cdk": "2.1001.0",
     "aws-sdk": "^2.1692.0",
-    "esbuild": "^0.23.1",
+    "esbuild": "^0.25.0",
     "esbuild-register": "^3.6.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.4.4"
