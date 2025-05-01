@@ -12,7 +12,7 @@
     "@aws-sdk/signature-v4": "^3.374.0",
     "@biomejs/biome": "^1.9.2",
     "@types/aws-lambda": "^8.10.147",
-    "@types/node": "22.13.14",
+    "@types/node": "22.15.3",
     "aws-cdk": "2.1013.0",
     "aws-sdk": "^2.1692.0",
     "esbuild": "^0.25.0",
