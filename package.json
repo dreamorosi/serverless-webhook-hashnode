@@ -26,7 +26,7 @@
     "@aws-lambda-powertools/parameters": "^2.22.0",
     "@smithy/protocol-http": "^5.3.4",
     "@urql/core": "^6.0.1",
-    "aws-cdk-lib": "2.221.1",
+    "aws-cdk-lib": "2.222.0",
     "constructs": "^10.4.2",
     "source-map-support": "^0.5.21"
   }
