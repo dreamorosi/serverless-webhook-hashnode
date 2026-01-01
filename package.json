@@ -13,7 +13,7 @@
     "@biomejs/biome": "^2.3.8",
     "@types/aws-lambda": "^8.10.159",
     "@types/node": "25.0.2",
-    "aws-cdk": "2.1033.0",
+    "aws-cdk": "2.1100.1",
     "aws-sdk": "^2.1692.0",
     "esbuild": "^0.27.2",
     "esbuild-register": "^3.6.0",
@@ -26,7 +26,7 @@
     "@aws-lambda-powertools/parameters": "^2.22.0",
     "@smithy/protocol-http": "^5.3.5",
     "@urql/core": "^6.0.1",
-    "aws-cdk-lib": "2.230.0",
+    "aws-cdk-lib": "2.233.0",
     "constructs": "^10.4.2",
     "source-map-support": "^0.5.21"
   }
